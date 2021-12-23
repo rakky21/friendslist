@@ -5,8 +5,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "node server.js",
     "demon": "nodemon server.js"
+=======
+    "start": "node server.js"
+>>>>>>> 6c0bafd601027458e103e2b9569e976961730c36
   },
   "keywords": [],
   "author": "",

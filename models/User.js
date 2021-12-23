@@ -18,6 +18,16 @@ const UserSchema = new Schema(
       default: Date.now,
       get: createdAtVal => dateFormat(createdAtVal)
     },
+<<<<<<< HEAD
+=======
+    size: {
+      type: String,
+      required: true,
+      enum: ['Personal', 'Small', 'Medium', 'Large', 'Extra Large'],
+      default: 'Large'
+    },
+    toppings: [],
+>>>>>>> 6c0bafd601027458e103e2b9569e976961730c36
     comments: [
       {
         type: Schema.Types.ObjectId,
