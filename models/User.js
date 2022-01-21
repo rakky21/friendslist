@@ -13,17 +13,21 @@ const UserSchema = new Schema(
       required: true,
       trim: true
     },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-      get: createdAtVal => dateFormat(createdAtVal)
+    email: {
+      type: String,
+      required: true,
+      unique: true,
     },
     thoughts: [
       {
         type: Schema.Types.ObjectId,
         ref: 'Thought'
       }
-    ]
+    ],
+    friends : {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }
   },
   {
     toJSON: {
