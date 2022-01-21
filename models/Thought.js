@@ -1,16 +1,6 @@
 const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-<<<<<<< HEAD
-const ReplySchema = new Schema(
-  {
-    // set custom id to avoid confusion with parent Thought _id
-    replyId: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId()
-    },
-    replyBody: {
-=======
 const ReactionSchema = new Schema(
   {
     // set custom id to avoid confusion with parent Thought _id
@@ -19,7 +9,6 @@ const ReactionSchema = new Schema(
       default: () => new Types.ObjectId()
     },
     reactionBody: {
->>>>>>> 6c0bafd601027458e103e2b9569e976961730c36
       type: String,
       required: true
     },
@@ -56,13 +45,8 @@ const ThoughtSchema = new Schema(
       default: Date.now,
       get: createdAtVal => dateFormat(createdAtVal)
     },
-<<<<<<< HEAD
-    // use ReplySchema to validate data for a reply
-    replies: [ReplySchema]
-=======
-    // use reactionSchema to validate data for a reaction
+    // use ReactionSchema to validate data for a Reaction
     replies: [ReactionSchema]
->>>>>>> 6c0bafd601027458e103e2b9569e976961730c36
   },
   {
     toJSON: {
@@ -73,11 +57,7 @@ const ThoughtSchema = new Schema(
   }
 );
 
-<<<<<<< HEAD
-ThoughtSchema.virtual('replyCount').get(function() {
-=======
-ThoughtSchema.virtual('reactionCount').get(function() {
->>>>>>> 6c0bafd601027458e103e2b9569e976961730c36
+ThoughtSchema.virtual('ReactionCount').get(function() {
   return this.replies.length;
 });
 

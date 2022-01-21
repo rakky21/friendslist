@@ -18,20 +18,10 @@ const UserSchema = new Schema(
       default: Date.now,
       get: createdAtVal => dateFormat(createdAtVal)
     },
-<<<<<<< HEAD
-=======
-    size: {
-      type: String,
-      required: true,
-      enum: ['Personal', 'Small', 'Medium', 'Large', 'Extra Large'],
-      default: 'Large'
-    },
-    toppings: [],
->>>>>>> 6c0bafd601027458e103e2b9569e976961730c36
-    comments: [
+    thoughts: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Comment'
+        ref: 'Thought'
       }
     ]
   },
@@ -45,10 +35,10 @@ const UserSchema = new Schema(
   }
 );
 
-// get total count of comments and replies on retrieval
-UserSchema.virtual('commentCount').get(function() {
-  return this.comments.reduce(
-    (total, comment) => total + comment.replies.length + 1,
+// get total count of thoughts and reactions on retrieval
+UserSchema.virtual('thoughtCount').get(function() {
+  return this.thoughts.reduce(
+    (total, thought) => total + thought.reactions.length + 1,
     0
   );
 });

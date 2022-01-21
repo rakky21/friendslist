@@ -5,11 +5,7 @@ const userController = {
   getAllUser(req, res) {
     User.find({})
       .populate({
-<<<<<<< HEAD
         path: 'comments',
-=======
-        path: 'thoughts',
->>>>>>> 6c0bafd601027458e103e2b9569e976961730c36
         select: '-__v'
       })
       .select('-__v')
@@ -21,15 +17,21 @@ const userController = {
       });
   },
 
+
+  // getAllPizza(req, res) {
+  //   Pizza.find({})
+  //     .then(dbUserData => res.json(dbUserData))
+  //     .catch(err => {
+  //       console.log(err);
+  //       res.status(400).json(err);
+  //     });
+
+  
   // get one User by id
   getUserById({ params }, res) {
     User.findOne({ _id: params.id })
       .populate({
-<<<<<<< HEAD
         path: 'comments',
-=======
-        path: 'thoughts',
->>>>>>> 6c0bafd601027458e103e2b9569e976961730c36
         select: '-__v'
       })
       .select('-__v')
@@ -52,11 +54,7 @@ const userController = {
     User.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
       .then(dbUserData => {
         if (!dbUserData) {
-<<<<<<< HEAD
           res.status(404).json({ message: 'No User found with this id!' });
-=======
-          res.status(404).json({ message: 'No user found with this id!' });
->>>>>>> 6c0bafd601027458e103e2b9569e976961730c36
           return;
         }
         res.json(dbUserData);
