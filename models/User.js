@@ -5,29 +5,30 @@ const UserSchema = new Schema(
   {
     userName: {
       type: String,
-      required: true,
-      trim: true
+      // required: true,
+      // trim: true
     },
     createdBy: {
       type: String,
-      required: true,
-      trim: true
+      // required: true,
+      // trim: true
     },
     email: {
       type: String,
-      required: true,
-      unique: true,
+      // required: true,
+      // unique: true,
+      // match: [/.+@.+\..+/, 'Please enter a valid e-mail address']
     },
-    thoughts: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Thought'
-      }
-    ],
-    friends : {
-      type: Schema.Types.ObjectId,
-      ref: 'User'
-    }
+    // thoughts: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Thought'
+    //   }
+    // ],
+    // friends : {
+    //   type: Schema.Types.ObjectId,
+    //   ref: 'User'
+    // }
   },
   {
     toJSON: {

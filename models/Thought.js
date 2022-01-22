@@ -12,10 +12,9 @@ const ReactionSchema = new Schema(
       type: String,
       required: true
     },
-    writtenBy: {
+    username: {
       type: String,
-      required: true,
-      trim: true
+      required: true
     },
     createdAt: {
       type: Date,

@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/friendslist', {
-  useFindAndModify: false,
+  // useFindAndModify: false, unsupported
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
